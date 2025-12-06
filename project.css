@@ -1,0 +1,514 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #000; 
+  color: #fff;
+  position: relative;
+}
+
+.image-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; 
+  overflow: hidden;
+}
+
+.image-intro img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  animation: zoomIn 6s forwards;
+}
+
+.image-intro.fade-out {
+  animation: fadeOut 1.2s forwards;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff; 
+  z-index: 5;
+  animation: fadeWhiteToBlack 2s forwards;
+  animation-delay: 0s;
+}
+
+@keyframes fadeWhiteToBlack {
+  to {
+    background: #000; 
+    opacity: 0;
+  }
+}
+
+header {
+  position: absolute;
+  top: 20%;
+  right: 13%;
+  z-index: 10; 
+}
+
+header h4 {
+  font-size: 1.2rem;
+  text-align: right;
+  opacity: 4;
+  transform: translateX(100px); 
+  animation: slideInRight 2s forwards;
+  animation-delay: 1s;
+}
+
+.intro {
+  position: absolute;
+  text-align: right;
+  top: 10%;
+  right: 20%;
+  z-index: 10;
+}
+
+.logo-header {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; 
+  opacity: 5;
+  transform: translateX(100px);
+}
+
+.logo {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slideInRight 0.6s forwards;
+}
+
+.logo.animated {
+  animation: slideInRight 0.6s forwards, bounce 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(-5px); }
+  50% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.write{
+  position: absolute;
+  top: 50%;
+  right: 40%;
+  z-index: 10;
+  color: chartreuse;
+}
+.write {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%); 
+  z-index: 10;
+  text-align: center;
+  opacity: 0;
+  animation: slideInRight 1s forwards;
+  animation-delay: 2s;
+}
+
+.password-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: chartreuse;
+}
+
+.password-container {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  max-width: 80vw;
+}
+
+.password-box {
+  width: 80%;
+  padding: 12px 50px 12px 20px; 
+  border: 2px solid #fff;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.197);
+  transition: all 0.3s ease;
+}
+
+.password-box:hover {
+  border-color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+.password-box:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.182);
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.toggle-password:hover {
+  color: #00ffff;
+}
+.final-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('nod.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  animation: none;
+}
+
+@keyframes finalBgShow {
+  from {
+    opacity: 0;
+    transform: scale(1.03);  
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.side-vertical {
+  position: fixed;
+  left: -120px; 
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+
+  font-size: 130px;
+  font-weight: 700;
+  letter-spacing: 28px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+
+  color: white;
+  opacity: 0.8;
+
+  pointer-events: none;
+  user-select: none;
+
+  animation: neonGlow 6s ease-in-out infinite;
+}
+
+@keyframes neonGlow {
+  0% {
+    text-shadow:
+      0 0 15px #ff00ff,
+      0 0 30px #ff00ff,
+      0 0 45px #ff00ff,
+      0 0 60px #ff00ff;
+    color: #ffffff;
+  }
+  25% {
+    text-shadow:
+      0 0 15px #00ffff,
+      0 0 30px #00ffff,
+      0 0 45px #00ffff,
+      0 0 60px #00ffff;
+    color: #e0ffff;
+  }
+  50% {
+    text-shadow:
+      0 0 15px #00ff00,
+      0 0 30px #00ff00,
+      0 0 45px #00ff00,
+      0 0 60px #00ff00;
+    color: #f0fff0;
+  }
+  75% {
+    text-shadow:
+      0 0 15px #ffcc00,
+      0 0 30px #ffcc00,
+      0 0 45px #ffcc00,
+      0 0 60px #ffcc00;
+    color: #fff7e6;
+  }
+  100% {
+    text-shadow:
+      0 0 15px #ff0000,
+      0 0 30px #ff0000,
+      0 0 45px #ff0000,
+      0 0 60px #ff0000;
+    color: #ffe6e6;
+  }
+}
+.info-text {
+  position: fixed;
+  bottom: 50px;       
+  right: 50px;        
+  max-width: 400px;
+  
+  color: rgba(255,255,255,0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: right;
+
+  background: rgba(0, 0, 0, 0.35);  
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  animation: infoFadeIn 2s ease forwards;
+  opacity: 0; 
+}
+
+@keyframes infoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item{
+  text-align: center;
+  text-align: end;
+  color: #FFF;
+  align-content: baseline;
+}
+
+@media (max-width: 480px) {
+
+  .side-vertical {
+    font-size: 70px;
+    letter-spacing: 15px;
+    left: -60px;
+  }
+
+  header h4 {
+    font-size: 22px;
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .password-container {
+    width: 90%;
+    top: 55%;
+  }
+
+  .password-container input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .toggle-password {
+    font-size: 14px;
+    right: 15px;
+  }
+
+  .info-text {
+    max-width: 250px;
+    font-size: 14px;
+    right: 10px;
+    bottom: 10px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .side-vertical {
+    font-size: 90px;
+    left: -80px;
+    letter-spacing: 18px;
+  }
+
+  header h4 {
+    font-size: 28px;
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .password-container {
+    width: 70%;
+    top: 50%;
+  }
+
+  .info-text {
+    max-width: 300px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .side-vertical {
+    font-size: 110px;
+    left: -100px;
+  }
+
+  .password-container {
+    width: 55%;
+  }
+}
+
+#strength-text {
+    margin-top: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.password-hints {
+    color: white;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.password-hints li {
+    opacity: 0.5;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.valid {
+    color: #00ff88;
+    opacity: 1 !important;
+}
+
+/* === FULL SCREEN BLUR BACKGROUND === */
+#analysis-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .35s ease;
+    z-index: 9999;
+}
+
+#analysis-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* === POPUP CARD === */
+#analysis-popup {
+    background: white;
+    width: 85%;
+    max-width: 420px;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    
+    transform: translateY(20px) scale(.85);
+    opacity: 0;
+    transition: 
+        transform .4s cubic-bezier(.16,.82,.26,1.01),
+        opacity .4s ease;
+}
+
+#analysis-overlay.show #analysis-popup {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* === Staggered "cute" popup lines === */
+.analysis-line {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: popIn .4s forwards;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Close button */
+.close-btn {
+    margin-top: 15px;
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.analysis-line {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadePop .45s forwards ease-out;
+}
+
+@keyframes fadePop {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
